@@ -8,6 +8,10 @@ public class StandarResponse {
     private String message;
     private JsonElement jsonElement;
 
+    public StandarResponse(){
+        // Constructor vacío por defecto
+    }
+
     public StandarResponse(StatusResponse statusResponse) {
         this.statusResponse = statusResponse;
     }

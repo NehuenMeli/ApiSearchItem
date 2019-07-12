@@ -14,6 +14,10 @@ public class Item {
     private String thumbnail;
     private String[] tags;
 
+    public Item(){
+        // Constructor vacío por defecto
+    }
+
     public Item(String id, String siteId, String title, Integer price, Currency currency, String listingTypeId, Date stopTime, String thumbnail, String[] tags) {
         this.id = id;
         this.siteId = siteId;

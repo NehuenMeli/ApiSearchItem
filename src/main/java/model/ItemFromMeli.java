@@ -20,6 +20,10 @@ public class ItemFromMeli {
     private String thumbnail;
     private String[] tags;
 
+    public ItemFromMeli(){
+        // Constructor vacío por defecto
+    }
+
     public ItemFromMeli(String id, String siteId, String title, Integer price, String currencyId, String listingTypeId, Date stopTime, String thumbnail, String[] tags) {
         this.id = id;
         this.siteId = siteId;
