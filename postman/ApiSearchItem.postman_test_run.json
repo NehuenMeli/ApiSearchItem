@@ -1,0 +1,1169 @@
+{
+	"id": "999ded2b-51b3-4e2a-a8c3-c181e7209d9f",
+	"name": "ApiSearchItem",
+	"allTests": [],
+	"timestamp": "2019-07-12T18:12:44.587Z",
+	"collection_id": "6b7874bd-2e3b-4caa-b354-4fff0f79718d",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "2a8326d9-e726-4494-a113-02f4b56ba3d1",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "6b7874bd-2e3b-4caa-b354-4fff0f79718d",
+		"name": "ApiSearchItem",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"variables": [],
+		"order": [
+			"2709e216-31dd-45c5-abc9-f260559ca7fa",
+			"633a1483-4356-4aa9-a4ec-af5cc1a2b1c7",
+			"7bdfe52e-3ae9-4ff0-8d11-0e402c65f357",
+			"1730d3fa-8ae0-4701-b0ab-7c2b1386ad09",
+			"90b383b1-58ea-4fd7-9921-9da8c2e2671c",
+			"e34652cf-811a-46a5-8834-5c73ead23976",
+			"248dca01-c6ad-4598-8d29-bef3b2283590",
+			"543b1dc8-6cda-4f54-9426-07d3e9a01bc8",
+			"7f384f20-2c14-4928-a174-b9d8e2dd345f",
+			"4b0815f1-02fc-4c54-89d5-9a50fe529a52",
+			"ec727989-7e80-4687-b822-3abec2473264",
+			"4148d38c-149b-4da8-bb3a-1d7e144b542c",
+			"c99da251-43bc-4057-9bcf-8bab5ddb4c05",
+			"aa261adb-3baf-4869-a45e-3dbdacfe6a97",
+			"012df5c7-3505-41a4-a921-63233f94b937",
+			"9f52e52d-c1f4-4cbc-933d-3ed5a91ec359",
+			"b7785a6f-c10c-4de4-b3a3-1e27dfc6d9d8"
+		],
+		"folders_order": [],
+		"owner": "8011899",
+		"favorite": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"key": "id_item_creado",
+			"value": "PRUEBA",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "Buscar Items",
+			"id": "2709e216-31dd-45c5-abc9-f260559ca7fa",
+			"url": "localhost:4567/item?query=iphone",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Cantidad de resultados mayor a 0": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cantidad de resultados mayor a 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"1169"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Cantidad de resultados mayor a 0": true
+				}
+			],
+			"time": "1169",
+			"totalRequestTime": "1169",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtener todos los items buscados",
+			"id": "633a1483-4356-4aa9-a4ec-af5cc1a2b1c7",
+			"url": "localhost:4567/item",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": true
+				}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtener todos los titulos de items buscados",
+			"id": "7bdfe52e-3ae9-4ff0-8d11-0e402c65f357",
+			"url": "localhost:4567/titulo",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true,
+				"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true,
+					"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": true
+				}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "Agregar Item",
+			"id": "1730d3fa-8ae0-4701-b0ab-7c2b1386ad09",
+			"url": "localhost:4567/item",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item creado correctamente": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item creado correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item creado correctamente": true
+				}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "Agregar Item repetido",
+			"id": "90b383b1-58ea-4fd7-9921-9da8c2e2671c",
+			"url": "localhost:4567/item",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item no creado por estar repetido": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item no creado por estar repetido": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item no creado por estar repetido": true
+				}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "Editar Item",
+			"id": "e34652cf-811a-46a5-8834-5c73ead23976",
+			"url": "localhost:4567/item/PRUEBA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item editado correctamente": true,
+				"Item editado contiene el titulo editado": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item editado correctamente": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item editado contiene el titulo editado": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item editado correctamente": true,
+					"Item editado contiene el titulo editado": true
+				}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtener Item específico",
+			"id": "248dca01-c6ad-4598-8d29-bef3b2283590",
+			"url": "localhost:4567/item/PRUEBA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item obtendio corresponde al item buscado": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item obtendio corresponde al item buscado": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item obtendio corresponde al item buscado": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "Consultar existencia de Item",
+			"id": "543b1dc8-6cda-4f54-9426-07d3e9a01bc8",
+			"url": "localhost:4567/item/PRUEBA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item creado existe": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item creado existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"4"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item creado existe": true
+				}
+			],
+			"time": "4",
+			"totalRequestTime": "4",
+			"iterationResults": {}
+		},
+		{
+			"name": "Eliminar Item",
+			"id": "7f384f20-2c14-4928-a174-b9d8e2dd345f",
+			"url": "localhost:4567/item/PRUEBA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item eliminado correctamente": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item eliminado correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item eliminado correctamente": true
+				}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "Eliminar Item no existente",
+			"id": "4b0815f1-02fc-4c54-89d5-9a50fe529a52",
+			"url": "localhost:4567/item/PRUEBA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item a eliminar no existe": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item a eliminar no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item a eliminar no existe": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtener Item no existente",
+			"id": "ec727989-7e80-4687-b822-3abec2473264",
+			"url": "localhost:4567/item/PRUEBA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item no encontrado es lo esperado": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item no encontrado es lo esperado": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item no encontrado es lo esperado": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "Consultar existencia de Item eliminado",
+			"id": "4148d38c-149b-4da8-bb3a-1d7e144b542c",
+			"url": "localhost:4567/item/PRUEBA",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Item no existe es lo esperado": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item no existe es lo esperado": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Item no existe es lo esperado": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "Traer items ordenados de forma descendente",
+			"id": "c99da251-43bc-4057-9bcf-8bab5ddb4c05",
+			"url": "localhost:4567/item?ordenarpor=price&ordenardeforma=desc",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Precio del primer elemento listado es mayor que el del segundo": true
+			},
+			"testPassFailCounts": {
+				"Precio del primer elemento listado es mayor que el del segundo": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{
+					"Precio del primer elemento listado es mayor que el del segundo": true
+				}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "Traer items ordenados de forma ascendente",
+			"id": "aa261adb-3baf-4869-a45e-3dbdacfe6a97",
+			"url": "localhost:4567/item?ordenarpor=price&ordenardeforma=asc",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Precio del primer elemento listado es menor que el precio del segundo elemento": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Precio del primer elemento listado es menor que el precio del segundo elemento": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Precio del primer elemento listado es menor que el precio del segundo elemento": true
+				}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "Traer items ordenados por listingTypeId",
+			"id": "012df5c7-3505-41a4-a921-63233f94b937",
+			"url": "localhost:4567/item?ordenarpor=listingTypeId&ordenardeforma=desc",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Items ordenados correctamente": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Items ordenados correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"6"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Items ordenados correctamente": true
+				}
+			],
+			"time": "6",
+			"totalRequestTime": "6",
+			"iterationResults": {}
+		},
+		{
+			"name": "Filtrar items y ordenar",
+			"id": "9f52e52d-c1f4-4cbc-933d-3ed5a91ec359",
+			"url": "localhost:4567/item?preciominimo=8000&preciomaximo=17000&tag=good_quality_thumbnail&ordenarpor=price&ordenardeforma=desc",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Items filtrados correctamente": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Items filtrados correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"7"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Items filtrados correctamente": true
+				}
+			],
+			"time": "7",
+			"totalRequestTime": "7",
+			"iterationResults": {}
+		},
+		{
+			"name": "Buscar, filtrar y ordenar items",
+			"id": "b7785a6f-c10c-4de4-b3a3-1e27dfc6d9d8",
+			"url": "localhost:4567/item?query=doberman&preciominimo=8000&preciomaximo=17000&tag=good_quality_thumbnail&ordenarpor=price&ordenardeforma=desc",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Items filtrados correctamente": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Items filtrados correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"615"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Items filtrados correctamente": true
+				}
+			],
+			"time": "615",
+			"totalRequestTime": "615",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 36,
+	"totalFail": 0,
+	"totalTime": 1891,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Buscar Items",
+			"id": "2709e216-31dd-45c5-abc9-f260559ca7fa",
+			"url": "localhost:4567/item?query=iphone",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cantidad de resultados mayor a 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtener todos los items buscados",
+			"id": "633a1483-4356-4aa9-a4ec-af5cc1a2b1c7",
+			"url": "localhost:4567/item",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtener todos los titulos de items buscados",
+			"id": "7bdfe52e-3ae9-4ff0-8d11-0e402c65f357",
+			"url": "localhost:4567/titulo",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Agregar Item",
+			"id": "1730d3fa-8ae0-4701-b0ab-7c2b1386ad09",
+			"url": "localhost:4567/item",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item creado correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Agregar Item repetido",
+			"id": "90b383b1-58ea-4fd7-9921-9da8c2e2671c",
+			"url": "localhost:4567/item",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item no creado por estar repetido": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Editar Item",
+			"id": "e34652cf-811a-46a5-8834-5c73ead23976",
+			"url": "localhost:4567/item/PRUEBA",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item editado correctamente": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item editado contiene el titulo editado": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtener Item específico",
+			"id": "248dca01-c6ad-4598-8d29-bef3b2283590",
+			"url": "localhost:4567/item/PRUEBA",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item obtendio corresponde al item buscado": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Consultar existencia de Item",
+			"id": "543b1dc8-6cda-4f54-9426-07d3e9a01bc8",
+			"url": "localhost:4567/item/PRUEBA",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item creado existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Eliminar Item",
+			"id": "7f384f20-2c14-4928-a174-b9d8e2dd345f",
+			"url": "localhost:4567/item/PRUEBA",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item eliminado correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Eliminar Item no existente",
+			"id": "4b0815f1-02fc-4c54-89d5-9a50fe529a52",
+			"url": "localhost:4567/item/PRUEBA",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item a eliminar no existe": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtener Item no existente",
+			"id": "ec727989-7e80-4687-b822-3abec2473264",
+			"url": "localhost:4567/item/PRUEBA",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item no encontrado es lo esperado": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Consultar existencia de Item eliminado",
+			"id": "4148d38c-149b-4da8-bb3a-1d7e144b542c",
+			"url": "localhost:4567/item/PRUEBA",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Item no existe es lo esperado": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Traer items ordenados de forma descendente",
+			"id": "c99da251-43bc-4057-9bcf-8bab5ddb4c05",
+			"url": "localhost:4567/item?ordenarpor=price&ordenardeforma=desc",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Precio del primer elemento listado es mayor que el del segundo": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Traer items ordenados de forma ascendente",
+			"id": "aa261adb-3baf-4869-a45e-3dbdacfe6a97",
+			"url": "localhost:4567/item?ordenarpor=price&ordenardeforma=asc",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Precio del primer elemento listado es menor que el precio del segundo elemento": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Traer items ordenados por listingTypeId",
+			"id": "012df5c7-3505-41a4-a921-63233f94b937",
+			"url": "localhost:4567/item?ordenarpor=listingTypeId&ordenardeforma=desc",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Items ordenados correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Filtrar items y ordenar",
+			"id": "9f52e52d-c1f4-4cbc-933d-3ed5a91ec359",
+			"url": "localhost:4567/item?preciominimo=8000&preciomaximo=17000&tag=good_quality_thumbnail&ordenarpor=price&ordenardeforma=desc",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Items filtrados correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Buscar, filtrar y ordenar items",
+			"id": "b7785a6f-c10c-4de4-b3a3-1e27dfc6d9d8",
+			"url": "localhost:4567/item?query=doberman&preciominimo=8000&preciomaximo=17000&tag=good_quality_thumbnail&ordenarpor=price&ordenardeforma=desc",
+			"time": "2019-07-12T18:12:44.587Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Items filtrados correctamente": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}

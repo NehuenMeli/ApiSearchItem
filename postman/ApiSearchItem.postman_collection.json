@@ -1,0 +1,740 @@
+{
+	"info": {
+		"_postman_id": "6b7874bd-2e3b-4caa-b354-4fff0f79718d",
+		"name": "ApiSearchItem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buscar Items",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f741222e-70a9-4aa3-86ef-8919f8f8289a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Cantidad de resultados mayor a 0\", function (){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(Object.keys(jsonData.jsonElement).length).to.gt(0);",
+							"});",
+							"pm.environment.set(\"cantidad_items\", Object.keys(pm.response.json().jsonElement).length);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item?query=iphone",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "iphone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los items buscados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f11c056d-50b6-45b5-b7f1-12bfdf6b4c88",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.test(\"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior\", function (){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(Object.keys(jsonData.jsonElement).length).to.eql(pm.environment.get(\"cantidad_items\"));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los titulos de items buscados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25451abb-1b4d-41cf-a0f6-b10a537950b3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.test(\"Cantidad de resultados igual a cantidad devueltos en la búsqueda anterior\", function (){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(Object.keys(jsonData.jsonElement).length).to.eql(pm.environment.get(\"cantidad_items\"));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/titulo",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"titulo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43e4dd71-0f42-4d17-8c27-88c3b4620741",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item creado correctamente\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"id\": {{id_item_creado}},\n            \"siteId\": \"MLA\",\n            \"title\": \"Doberman Machos Y Hembras\",\n            \"price\": \"8000\",\n            \"currency\": {\n                \"id\": \"ARS\",\n                \"symbol\": \"$\",\n                \"description\": \"Peso argentino\",\n                \"decimal_places\": \"2\"\n            },\n            \"listingTypeId\": \"gold_special\",\n            \"stopTime\": \"Jul 3, 2039 9:24:18 PM\",\n            \"thumbnail\": \"http://mla-s2-p.mlstatic.com/624722-MLA31385679421_072019-I.jpg\",\n            \"tags\": [\n                \"good_quality_picture\",\n                \"good_quality_thumbnail\",\n                \"immediate_payment\"\n            ]\n        }"
+				},
+				"url": {
+					"raw": "localhost:4567/item",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Item repetido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43e4dd71-0f42-4d17-8c27-88c3b4620741",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item no creado por estar repetido\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"id\": {{id_item_creado}},\n            \"siteId\": \"MLA\",\n            \"title\": \"Doberman Machos Y Hembras\",\n            \"price\": \"8000\",\n            \"currency\": {\n                \"id\": \"ARS\",\n                \"symbol\": \"$\",\n                \"description\": \"Peso argentino\",\n                \"decimal_places\": \"2\"\n            },\n            \"listingTypeId\": \"gold_special\",\n            \"stopTime\": \"Jul 3, 2039 9:24:18 PM\",\n            \"thumbnail\": \"http://mla-s2-p.mlstatic.com/624722-MLA31385679421_072019-I.jpg\",\n            \"tags\": [\n                \"good_quality_picture\",\n                \"good_quality_thumbnail\",\n                \"immediate_payment\"\n            ]\n        }"
+				},
+				"url": {
+					"raw": "localhost:4567/item",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8fd07fb8-0a3e-4062-a7f8-2513f29c60e7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item editado correctamente\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");",
+							"});",
+							"pm.test(\"Item editado contiene el titulo editado\", function (){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.jsonElement.title).to.equal(pm.environment.get(\"titulo_item_editado\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"id\": {{id_item_creado}},\n            \"siteId\": \"MLA\",\n            \"title\": {{titulo_item_editado}},\n            \"price\": 13368,\n            \"currency\": {\n                \"id\": \"ARS\",\n                \"symbol\": \"$\",\n                \"description\": \"Peso argentino\",\n                \"decimal_places\": \"2\"\n            },\n            \"listingTypeId\": \"gold_special\",\n            \"stopTime\": \"Jun 23, 2039 1:00:00 AM\",\n            \"thumbnail\": \"http://mla-s1-p.mlstatic.com/917771-MLA29929166922_042019-I.jpg\",\n            \"tags\": [\n                \"dragged_bids_and_visits\",\n                \"good_quality_picture\",\n                \"good_quality_thumbnail\",\n                \"immediate_payment\",\n                \"cart_eligible\"\n            ]\n        }"
+				},
+				"url": {
+					"raw": "localhost:4567/item/{{id_item_creado}}",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item",
+						"{{id_item_creado}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Item específico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "83a8ef12-5196-4636-b53e-3a526417294a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item obtendio corresponde al item buscado\", function (){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.jsonElement.id).to.equal(pm.environment.get(\"id_item_creado\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item/{{id_item_creado}}",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item",
+						"{{id_item_creado}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar existencia de Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "171a4133-f5d8-4075-9baa-9ea6569298fd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item creado existe\", function () {",
+							"    pm.expect(pm.response.text()).to.include(pm.environment.get(\"id_item_creado\")+\" existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item/{{id_item_creado}}",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item",
+						"{{id_item_creado}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "784df352-5531-454d-b974-5a6f9a67744b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item eliminado correctamente\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item/{{id_item_creado}}",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item",
+						"{{id_item_creado}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Item no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "784df352-5531-454d-b974-5a6f9a67744b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item a eliminar no existe\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item/{{id_item_creado}}",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item",
+						"{{id_item_creado}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Item no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "83a8ef12-5196-4636-b53e-3a526417294a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item no encontrado es lo esperado\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"No se encontró el Item con id \"+pm.environment.get(\"id_item_creado\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item/{{id_item_creado}}",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item",
+						"{{id_item_creado}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar existencia de Item eliminado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "171a4133-f5d8-4075-9baa-9ea6569298fd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Item no existe es lo esperado\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"no existe\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item/{{id_item_creado}}",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item",
+						"{{id_item_creado}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer items ordenados de forma descendente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c31be3b1-cca8-42fd-aec0-99430db32e01",
+						"exec": [
+							"pm.test(\"Precio del primer elemento listado es mayor que el del segundo\", function (){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.jsonElement[0].price).to.gt(jsonData.jsonElement[1].price);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item?ordenarpor=price&ordenardeforma=desc",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "ordenarpor",
+							"value": "price"
+						},
+						{
+							"key": "ordenardeforma",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer items ordenados de forma ascendente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c31be3b1-cca8-42fd-aec0-99430db32e01",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});pm.test(\"Precio del primer elemento listado es menor que el precio del segundo elemento\", function (){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.jsonElement[1].price).to.gt(jsonData.jsonElement[0].price);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item?ordenarpor=price&ordenardeforma=asc",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "ordenarpor",
+							"value": "price"
+						},
+						{
+							"key": "ordenardeforma",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer items ordenados por listingTypeId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5f8f6135-aeea-4958-b7e0-10e3b77fc804",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Items ordenados correctamente\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item?ordenarpor=listingTypeId&ordenardeforma=desc",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "ordenarpor",
+							"value": "listingTypeId"
+						},
+						{
+							"key": "ordenardeforma",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar items y ordenar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ea0fcc9-903f-41ac-984e-de19c1d3b308",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Items filtrados correctamente\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item?preciominimo=8000&preciomaximo=17000&tag=good_quality_thumbnail&ordenarpor=price&ordenardeforma=desc",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "preciominimo",
+							"value": "8000"
+						},
+						{
+							"key": "preciomaximo",
+							"value": "17000"
+						},
+						{
+							"key": "tag",
+							"value": "good_quality_thumbnail"
+						},
+						{
+							"key": "ordenarpor",
+							"value": "price"
+						},
+						{
+							"key": "ordenardeforma",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar, filtrar y ordenar items",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ca592e2f-2f8c-4196-bffb-9b1f9dd60ec9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Items filtrados correctamente\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"SUCCESS\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4567/item?query=doberman&preciominimo=8000&preciomaximo=17000&tag=good_quality_thumbnail&ordenarpor=price&ordenardeforma=desc",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "doberman"
+						},
+						{
+							"key": "preciominimo",
+							"value": "8000"
+						},
+						{
+							"key": "preciomaximo",
+							"value": "17000"
+						},
+						{
+							"key": "tag",
+							"value": "good_quality_thumbnail"
+						},
+						{
+							"key": "ordenarpor",
+							"value": "price"
+						},
+						{
+							"key": "ordenardeforma",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
