@@ -96,11 +96,10 @@ public class SearchItemResources {
             response.type(APPLICATION_JSON);
             String id = request.params(PARAM_ID);
 
-            Item item = JsonHelper.getItem(request);
-
             StandarResponse standarResponse = null;
 
             try{
+                Item item = JsonHelper.getItem(request);
                 Item itemModificado = service.editItem(item, id);
                 standarResponse = new StandarResponse(StatusResponse.SUCCESS,
                         JsonHelper.getJsonElement(itemModificado));
