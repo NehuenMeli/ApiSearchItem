@@ -17,6 +17,6 @@ public interface ItemService {
     Item getItem(String id) throws ItemException;
     Item editItem(Item item, String id) throws ItemException;
     void deleteItem(String id) throws ItemException;
-    boolean itemExists(String id) throws ItemException;
+    boolean itemExists(String id);
     Collection<String> getTitles() throws ItemException;
 }

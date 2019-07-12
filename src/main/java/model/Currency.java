@@ -9,6 +9,10 @@ public class Currency {
     @SerializedName("decimal_places")
     private String decimalPlaces;
 
+    public Currency(){
+        // Constructor vacío por defecto
+    }
+
     public Currency(String id, String symbol, String description, String decimalPlaces) {
         this.id = id;
         this.symbol = symbol;

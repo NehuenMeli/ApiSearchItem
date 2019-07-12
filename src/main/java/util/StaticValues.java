@@ -2,6 +2,8 @@ package util;
 
 public abstract class StaticValues {
 
+    public static final String FILE_NAME = "Items.json";
+
     public abstract class Client{
         public static final String URL_SEARCH_ITEM = "https://api.mercadolibre.com/sites/MLA/search?q=";
         public static final String URL_CURRENCIES = "https://api.mercadolibre.com/currencies";
