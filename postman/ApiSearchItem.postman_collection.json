@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "6b7874bd-2e3b-4caa-b354-4fff0f79718d",
 		"name": "ApiSearchItem",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -181,8 +182,8 @@
 					"script": {
 						"id": "43e4dd71-0f42-4d17-8c27-88c3b4620741",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
 							"});",
 							"pm.test(\"Item no creado por estar repetido\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"ERROR\");",
@@ -385,8 +386,8 @@
 					"script": {
 						"id": "784df352-5531-454d-b974-5a6f9a67744b",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
 							"});",
 							"pm.test(\"Item a eliminar no existe\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"ERROR\");",
@@ -421,8 +422,8 @@
 					"script": {
 						"id": "83a8ef12-5196-4636-b53e-3a526417294a",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
 							"});",
 							"pm.test(\"Item no encontrado es lo esperado\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"No se encontró el Item con id \"+pm.environment.get(\"id_item_creado\"));",
