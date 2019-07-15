@@ -84,10 +84,16 @@ public class SearchItemClientRestImpl implements SearchItemClient {
                 .orElse(null);
     }
 
+    /**
+     * Obtiene el listado de {@link Currency} procedente del origen de datos definido para poder trabajar con ellas luego.
+     * Se apoya en el método {@link SearchItemClientRestImpl#getJson(InputStreamReader)} para obtener el json con el
+     * listado de currencies
+     *
+     * @return grupo de todas las {@link Currency} definidas en el cliente
+     */
     @Override
     public Currency[] getCurrencies() {
         Currency[] currencies = null;
-        BufferedReader bufferedInputStream = null;
         try {
             URL url = new URL(URL_CURRENCIES);
             URLConnection urlConnection = url.openConnection();

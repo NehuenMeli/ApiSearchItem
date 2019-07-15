@@ -56,6 +56,7 @@ public class SearchItemResources {
 
             }catch (ItemException e){
                 standarResponse = buildErrorResponse(e);
+                response.status(NOT_FOUND);
             }
 
 
@@ -71,6 +72,7 @@ public class SearchItemResources {
                 standarResponse = new StandarResponse(StatusResponse.SUCCESS);
             }catch (ItemException e){
                 standarResponse = buildErrorResponse(e);
+                response.status(CONFLICT);
             }
 
             return JsonHelper.getJsonResponse(standarResponse);
@@ -86,6 +88,7 @@ public class SearchItemResources {
                 standarResponse = new StandarResponse(StatusResponse.SUCCESS,
                         JsonHelper.getJsonElement(item));
             }catch (ItemException e){
+                response.status(NOT_FOUND);
                 standarResponse = buildErrorResponse(e);
             }
 
@@ -104,6 +107,7 @@ public class SearchItemResources {
                 standarResponse = new StandarResponse(StatusResponse.SUCCESS,
                         JsonHelper.getJsonElement(itemModificado));
             }catch (ItemException e){
+                response.status(NOT_FOUND);
                 standarResponse = buildErrorResponse(e);
             }
 
@@ -121,6 +125,7 @@ public class SearchItemResources {
                 String responseMessage = getString(ITEM_ELIMINADO,id);
                 standarResponse = new StandarResponse(StatusResponse.SUCCESS,responseMessage);
             }catch (ItemException e){
+                response.status(NOT_FOUND);
                 standarResponse = buildErrorResponse(e);
             }
 
@@ -155,6 +160,7 @@ public class SearchItemResources {
                 standarResponse = new StandarResponse(StatusResponse.SUCCESS,
                         JsonHelper.getJsonElement(titles));
             }catch (ItemException e){
+                response.status(NOT_FOUND);
                 standarResponse = buildErrorResponse(e);
             }
 
