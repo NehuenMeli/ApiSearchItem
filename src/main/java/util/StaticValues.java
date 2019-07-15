@@ -27,6 +27,8 @@ public abstract class StaticValues {
         public static final String ENCODING = "UTF-8";
         public static final String APPLICATION_JSON = "application/json";
         public static final String HEADER_ACCEPT = "Accept";
+        public static final int CONFLICT = 409;
+        public static final int NOT_FOUND = 404;
     }
 
     public abstract class ResponseMessage {

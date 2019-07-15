@@ -1,0 +1,356 @@
+swagger: "2.0"
+info:
+  description: "Api funcional al ejercicio de Spark con Java para el IT Acelerator de MELI"
+  version: "1.0.0"
+  title: "ApiSearchItem"
+  contact:
+    email: "nehuen.gutierrez@mercadolibre.com"
+host: "com.mercadolibre.itacelerator"
+basePath: "/v1"
+tags:
+- name: "item"
+  description: "Busqueda y filtrado de items de Mercado Libre"
+schemes:
+- "https"
+- "http"
+paths:
+  /item:
+    post:
+      tags:
+      - "item"
+      summary: "Agrega un item al listado local"
+      description: "Se almacena un item de forma temporal hasta que se realiza una nueva búsqueda"
+      operationId: "addItem"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "item"
+        description: "Objeto Item, el cual representa un item de Mercado Libre"
+        required: true
+        schema:
+          $ref: "#/definitions/Item"
+      responses:
+        200:
+          description: "Item agregado correctamente"
+          schema:
+            $ref: "#/definitions/ItemAgregadoResponse"
+        409:
+          description: "El Item a agregar ya existe"
+          schema:
+            $ref: "#/definitions/ItemYaExistenteResponse"
+    get:
+      tags:
+      - "item"
+      summary: "Obtiene el listado de Items de Mercado Libre"
+      description: "Obtiene los Items buscando, ordenando y filtrando los mismos en función a los parámetros de entrada"
+      operationId: "getItems"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "query (Optional)"
+        description: "Define un parámetro de búsqueda para obtener un listado de Items del sitio de Mercado Libre. Si este parámetro no es enviado, la consulta de Items se realizará de contra el sistema de persistencia localmente definido"
+        required: false
+        type: "string"
+      - in: "query"
+        name: "preciominimo (Optional)"
+        description: "Filtra los Items a aquellos con un precio mayor al valor del parámetro"
+        required: false
+        type: "string"
+      - in: "query"
+        name: "preciomaximo (Optional)"
+        description: "Filtra los Items a aquellos con un precio menor al valor del parámetro"
+        required: false
+        type: "string"
+      - in: "query"
+        name: "tag (Optional)"
+        description: "Filtra los Items a aquellos que contengan el tag definido en el parámetro. Revisar tags habilitados para filtrar"
+        required: false
+        type: "string"
+        enum:
+        - "good_quality_thumbnail"
+      responses:
+        200:
+          description: "Listado de Items buscados, filtrados y ordenados"
+          schema:
+            $ref: "#/definitions/StandarResponse"
+        404:
+          description: "Items no encontrados"
+          schema:
+            $ref: "#/definitions/SinItemsResponse"
+  /titulo:
+    get:
+      tags:
+      - "titulo"
+      summary: "Obtiene un listado títulos de Items"
+      description: "Muestra el listado de títulos de aquellos Items  encontrados en la última búsqueda almacenada"
+      operationId: "getTitles"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Títulos obtenidos correctamente"
+          schema:
+            $ref: "#/definitions/TitulosResponse"
+        404:
+          description: "Items no encontrados"
+          schema:
+            $ref: "#/definitions/SinItemsResponse"
+  /item/{itemId}:
+    get:
+      tags:
+      - "item"
+      summary: "Obtiene un Item"
+      description: "Obtiene un único Item correspondiente al id proporcionado como parámetro."
+      operationId: "getItem"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "itemId"
+        in: "path"
+        description: "Id del Item buscado"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Item obtenido correctamente"
+          schema:
+            $ref: "#/definitions/StandarSingleItemResponse"
+        404:
+          description: "Invalid tag value"
+          schema:
+            $ref: "#/definitions/ItemNoExistenteResponse"
+    put:
+      tags:
+      - "item"
+      summary: "Edita un Item"
+      description: "Edita un único Item pasado en el cuerpo del Request."
+      operationId: "editItem"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "itemId"
+        in: "path"
+        description: "Id del Item a editar"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "item"
+        description: "Objeto Item, el cual representa un item de Mercado Libre"
+        required: true
+        schema:
+          $ref: "#/definitions/Item"
+      responses:
+        200:
+          description: "Item editado correctamente"
+          schema:
+            $ref: "#/definitions/StandarSingleItemResponse"
+        404:
+          description: "Item inexistente"
+          schema:
+            $ref: "#/definitions/ItemNoExistenteResponse"      
+    delete:
+      tags:
+      - "item"
+      summary: "Elimina un Item"
+      description: "Elimina un Item específico correspondiente al id proporcionado como parámetro."
+      operationId: "deleteItem"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "itemId"
+        in: "path"
+        description: "Id del Item a eliminar"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Item eliminado correctamente"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ItemEliminadoResponse"
+        404:
+          description: "Item inexistente"
+          schema:
+            $ref: "#/definitions/ItemNoExistenteResponse"    
+    options:
+      tags:
+      - "item"
+      summary: "Verifica la existencia de un Item"
+      description: "Informa si un Item específico existe a partir del id proporcionado como parámetro."
+      operationId: "itemExists"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "itemId"
+        in: "path"
+        description: "Id del Item a comprobar"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Item existe o no existe"
+          schema:
+            $ref: "#/definitions/ItemExisteResponse"     
+definitions:
+  Item:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "MLA771186529"
+      siteId:
+        type: "string"
+        example: "MLA"
+      title:
+        type: "string"
+        example: "iPhone 7 Apple 32gb Sellado Libre + Original Gtia + Templado"
+      price:
+        type: "integer"
+        format: "int64"
+        example: 32989
+      currency:
+        $ref: "#/definitions/Currency"
+      listingTypeId:
+        type: "string"
+        example: "gold_special"
+      stopTime:
+        type: "string"
+        example: "Feb 10, 2039 1:00:00 AM"
+      thumbnail:
+        type: "string"
+        example: "http://mla-s2-p.mlstatic.com/751692-MLA31081757564_062019-I.jpg"
+      tags:
+        type: "array"
+        items:
+          type: "string"
+  Currency:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "ARS"
+      symbol:
+        type: "string"
+        example: "$"
+      description:
+        type: "string"
+        example: "Peso argentino"
+      decimal_places:
+        type: "string"
+        example: "2"
+  StandarResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+      jsonElement:
+        type: "array"
+        items:
+          $ref: "#/definitions/Item"
+          
+  StandarSingleItemResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+      jsonElement:
+        $ref: "#/definitions/Item"   
+        
+  ItemNoExistenteResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+        example: "ERROR"
+      message:
+        type: "string"
+        example: "El Item con el id MLA771186529 no existe"
+  
+  ItemExisteResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        example: "SUCCESS"
+      message:
+        type: "string"
+        example: "El Item con el id MLA771186529 existe"      
+        
+  SinItemsResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+        example: "ERROR"
+      message:
+        type: "string"
+        example: "No se encontró ningún Item con la búsqueda por iphone."      
+  ItemYaExistenteResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+        example: "ERROR"
+      message:
+        type: "string"
+        example: "El Item con el id MLA771186529 ya existe"
+        
+  ItemAgregadoResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+        example: "SUCCESS"
+    
+  ItemEliminadoResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+        example: "SUCCESS"
+      message:
+        type: "string"
+        example: "Item id MLA771186529 eliminado correctamente"    
+  
+  TitulosResponse:
+    type: "object"
+    properties:
+      statusResponse:
+        type: "string"
+        enum: 
+        - "SUCCESS"
+        - "ERROR"
+        example: "SUCCESS"
+      jsonElement:
+        type: "array"
+        items:
+          type: "string"
+          example: "iPhone 7 Apple 32gb Sellado Libre + Original Gtia + Templado"
